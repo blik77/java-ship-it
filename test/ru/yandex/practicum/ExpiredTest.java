@@ -17,4 +17,9 @@ public class ExpiredTest {
     public void shouldExpiredParcel() {
         Assertions.assertTrue(perishableParcel.isExpired(15));
     }
+
+    @Test
+    public void shouldExpiredParcelBoundaryCondition() {
+        Assertions.assertFalse(perishableParcel.isExpired(7));
+    }
 }

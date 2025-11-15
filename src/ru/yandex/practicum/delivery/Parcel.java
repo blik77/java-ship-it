@@ -1,10 +1,6 @@
 package ru.yandex.practicum.delivery;
 
-import java.util.Scanner;
-
 public abstract class Parcel {
-    private static final Scanner scanner = new Scanner(System.in);
-
     protected String description;
     protected int weight;
     protected String deliveryAddress;
@@ -29,7 +25,11 @@ public abstract class Parcel {
         return weight * getBaseCost();
     }
 
-    public abstract int getBaseCost();
+    public int getWeight() {
+        return weight;
+    }
+
+    protected abstract int getBaseCost();
 
     @Override
     public String toString() {

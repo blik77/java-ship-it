@@ -1,11 +1,8 @@
 package ru.yandex.practicum.delivery;
 
-import java.util.Scanner;
-
 public class PerishableParcel extends Parcel {
-    static final int baseCost = 3;
-    private static final Scanner scanner = new Scanner(System.in);
-    protected int timeToLive;
+    static final int BASE_COST = 3;
+    private int timeToLive;
 
     public PerishableParcel(String description, int weight, String deliveryAddress, int sendDay, int timeToLive) {
         super(description, weight, deliveryAddress, sendDay);
@@ -13,8 +10,8 @@ public class PerishableParcel extends Parcel {
     }
 
     @Override
-    public int getBaseCost() {
-        return baseCost;
+    protected int getBaseCost() {
+        return BASE_COST;
     }
 
     public boolean isExpired(int currentDay) {

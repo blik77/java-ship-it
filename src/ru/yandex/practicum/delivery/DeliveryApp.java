@@ -8,7 +8,7 @@ public class DeliveryApp {
 
     private static final Scanner scanner = new Scanner(System.in);
     private static final List<Parcel> allParcels = new ArrayList<>();
-    private static final TrackableList<FragileParcel> allTrackParcels = new TrackableList<>();
+    private static final List<Trackable> allTrackParcels = new ArrayList<>();
 
     private static final ParcelBox<StandardParcel> standardParcelBox = new ParcelBox<>(10);
     private static final ParcelBox<FragileParcel> fragileParcelBox = new ParcelBox<>(5);
@@ -131,10 +131,10 @@ public class DeliveryApp {
     }
 
     private static void trackParcels() {
-        if (allTrackParcels.getAll().isEmpty()) {
+        if (allTrackParcels.isEmpty()) {
             System.out.println("Список отслеживаемых посылок пуст.");
         } else {
-            for (FragileParcel parcel : allTrackParcels.getAll()) {
+            for (Trackable parcel : allTrackParcels) {
                 System.out.println("Введите новое местоположение для: " + parcel);
                 String newLocation = scanner.nextLine();
                 parcel.reportStatus(newLocation);
